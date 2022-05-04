@@ -7,4 +7,3 @@ zombie.load_all()
 scores = zombie.get_scores()
 
 print(scores)
-

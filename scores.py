@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import requests
 import api_tags
 import logs
+import os
 import coingecko_api
 import numpy as np
 from web3 import Web3
@@ -10,11 +11,13 @@ from collections import Counter
 from pandas import json_normalize
 from dateutil import parser
 from datetime import datetime, timezone
+from dotenv import load_dotenv
 
-ALCHEMY_KEY = 'PYAtc63EE81LrZF9lIMgaH37ko8Pc_kH'
-MORALIS_KEY = '7GMcWLnLr8hLYHfMFeM2Ii97LCJIBEqLH8vaPBexlXeNSKv2Z0tf9cxXRCgrLqpi'
-OPENSEA_KEY = '280b183c46784af0a743a15c8d5136ce'
-eth_address = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+load_dotenv()
+
+ALCHEMY_KEY = os.getenv('ALCHEMY_KEY')
+MORALIS_KEY = os.getenv('MORALIS_KEY')
+OPENSEA_KEY = os.getenv('OPENSEA_KEY')
 null_address = '0x0000000000000000000000000000000000000000'
 alchemy_url = f"https://eth-mainnet.alchemyapi.io/v2/{ALCHEMY_KEY}"
 web3 = Web3(Web3.HTTPProvider(alchemy_url))
